@@ -1,0 +1,33 @@
+{
+  "name": "feedclip-angular-example",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "ng serve --host 0.0.0.0",
+    "build": "ng build",
+    "start": "ng serve --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@angular/common": "^21.2.17",
+    "@angular/core": "^21.2.17",
+    "@angular/platform-browser": "^21.2.17",
+    "@feedclip/sdk": "0.1.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "rxjs": "^7.8.0",
+    "tslib": "^2.8.0",
+    "zone.js": "^0.16.2"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.2.15",
+    "@angular/cli": "^21.2.15",
+    "@angular/compiler-cli": "^21.2.17",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "typescript": "~5.9.3"
+  },
+  "overrides": {
+    "esbuild": "0.28.1",
+    "vite": "8.0.16"
+  }
+}
