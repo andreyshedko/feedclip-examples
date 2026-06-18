@@ -8,9 +8,9 @@ backend, or API key is required.
 
 | Framework | Source | Open in StackBlitz |
 |---|---|---|
-| React 19 | [`react`](./react) | [Open example](https://stackblitz.com/fork/github/andreyshedko/feedclip-examples/tree/main/react) |
-| Vue 3 | [`vue`](./vue) | [Open example](https://stackblitz.com/fork/github/andreyshedko/feedclip-examples/tree/main/vue) |
-| Angular 21 | [`angular`](./angular) | [Open example](https://stackblitz.com/fork/github/andreyshedko/feedclip-examples/tree/main/angular) |
+| React 19 | [`react`](./react) | [Open example](https://stackblitz.com/github/andreyshedko/feedclip-examples/tree/main/react) |
+| Vue 3 | [`vue`](./vue) | [Open example](https://stackblitz.com/github/andreyshedko/feedclip-examples/tree/main/vue) |
+| Angular 21 | [`angular`](./angular) | [Open example](https://stackblitz.com/github/andreyshedko/feedclip-examples/tree/main/angular) |
 
 ## Local development
 
