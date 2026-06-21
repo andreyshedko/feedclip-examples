@@ -1,9 +1,6 @@
-import FeedClip, { createIndexedDbFeedbackStore } from "@feedclip/sdk";
+import FeedClip from "@feedclip/sdk";
 import "@feedclip/sdk/style.css";
-
-const saveLocally = createIndexedDbFeedbackStore({
-  databaseName: "feedclip-react-example",
-});
+import { submitToFeedClipCloud } from "./cloud";
 
 export default function App() {
   return (
@@ -12,13 +9,13 @@ export default function App() {
         <span className="eyebrow">React 19 example</span>
         <h1>See the feedback your users are trying to explain.</h1>
         <p>
-          Record a short camera clip, add context, and submit it. This demo keeps
-          everything in your browser with IndexedDB.
+          Record a short camera clip, add context, and submit it to the live
+          FeedClip Cloud pipeline.
         </p>
         <ul>
-          <li>No account or API key</li>
-          <li>No upload to a third party</li>
-          <li>Production-ready TypeScript config</li>
+          <li>No account or permanent API key in the browser</li>
+          <li>Private storage with short-lived upload access</li>
+          <li>Cloud storage without OpenAI API usage</li>
         </ul>
       </section>
 
@@ -37,7 +34,7 @@ export default function App() {
             source: "react-stackblitz-example",
             plan: "demo",
           }),
-          onSubmit: saveLocally,
+          onSubmit: submitToFeedClipCloud,
         }}
       />
     </main>
