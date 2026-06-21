@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { FeedClipAngularComponent } from "@feedclip/sdk/angular";
-import { createIndexedDbFeedbackStore } from "@feedclip/sdk";
+import { submitToFeedClipCloud } from "./cloud";
 
 @Component({
   selector: "app-root",
@@ -13,12 +13,12 @@ import { createIndexedDbFeedbackStore } from "@feedclip/sdk";
         <h1>Drop video feedback into an Angular product.</h1>
         <p>
           The standalone adapter handles mount, config updates, and cleanup.
-          This example stores submissions locally in IndexedDB.
+          Submissions use the live FeedClip Cloud demo.
         </p>
         <ul>
-          <li>No account or API key</li>
-          <li>Standalone Angular component</li>
-          <li>Strict TypeScript configuration</li>
+          <li>No permanent API key in the browser</li>
+          <li>Private storage with short-lived upload access</li>
+          <li>Cloud storage without OpenAI API usage</li>
         </ul>
       </section>
 
@@ -41,8 +41,6 @@ export class AppComponent {
       source: "angular-stackblitz-example",
       plan: "demo",
     }),
-    onSubmit: createIndexedDbFeedbackStore({
-      databaseName: "feedclip-angular-example",
-    }),
+    onSubmit: submitToFeedClipCloud,
   };
 }
