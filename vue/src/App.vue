@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import FeedClipVue from "@feedclip/sdk/vue";
-import { createIndexedDbFeedbackStore } from "@feedclip/sdk";
 import "@feedclip/sdk/style.css";
+import { submitToFeedClipCloud } from "./cloud";
 
 const config = {
   locale: "en-US" as const,
@@ -17,9 +17,7 @@ const config = {
     source: "vue-stackblitz-example",
     plan: "demo",
   }),
-  onSubmit: createIndexedDbFeedbackStore({
-    databaseName: "feedclip-vue-example",
-  }),
+  onSubmit: submitToFeedClipCloud,
 };
 </script>
 
@@ -30,12 +28,12 @@ const config = {
       <h1>Video feedback inside your Vue product.</h1>
       <p>
         The Vue lifecycle adapter renders the same tested capture engine and
-        reacts to config changes. Submissions stay in local IndexedDB.
+        reacts to config changes. Submissions use the live FeedClip Cloud demo.
       </p>
       <ul>
-        <li>No account or API key</li>
-        <li>Deep config updates supported</li>
-        <li>Automatic cleanup on unmount</li>
+        <li>No permanent API key in the browser</li>
+        <li>Private storage with short-lived upload access</li>
+        <li>Cloud storage without OpenAI API usage</li>
       </ul>
     </section>
 
