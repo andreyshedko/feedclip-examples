@@ -55,6 +55,54 @@ ul {
   padding-left: 1.25rem;
 }
 
+.license-panel,
+.license-alert {
+  border: 1px solid rgba(231, 73, 39, 0.25);
+  border-radius: 1.25rem;
+  background: #fffaf3;
+  box-shadow: 0 1.5rem 4rem rgba(23, 23, 18, 0.08);
+}
+
+.license-panel {
+  padding: 1.5rem;
+}
+
+.license-panel p {
+  margin: 0;
+}
+
+.license-alert {
+  padding: 1rem;
+}
+
+.license-alert strong {
+  color: #171712;
+  font-size: 0.95rem;
+}
+
+.license-alert p {
+  margin: 0.4rem 0 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.license-alert button {
+  border: 0;
+  border-radius: 999px;
+  background: #171712;
+  color: #fffaf3;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 0.65rem 0.9rem;
+}
+
+.license-alert button:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
 @media (min-width: 900px) {
   .demo-shell {
     grid-template-columns: 0.9fr 1.1fr;
