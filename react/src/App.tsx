@@ -9,6 +9,12 @@ export default function App() {
   return (
     <main className="demo-shell">
       <section className="demo-copy">
+        <a className="brand-link" href="https://www.feedclip.dev" target="_blank" rel="noreferrer">
+          <span className="brand-mark" aria-hidden="true">
+            <span className="brand-dot" />
+          </span>
+          feedclip
+        </a>
         <span className="eyebrow">React 19 example</span>
         <h1>See the feedback your users are trying to explain.</h1>
         <p>

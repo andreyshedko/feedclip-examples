@@ -9,6 +9,12 @@ import { createIndexedDbFeedbackStore } from "@feedclip/sdk";
   template: `
     <main class="demo-shell">
       <section class="demo-copy">
+        <a class="brand-link" href="https://www.feedclip.dev" target="_blank" rel="noreferrer">
+          <span class="brand-mark" aria-hidden="true">
+            <span class="brand-dot"></span>
+          </span>
+          feedclip
+        </a>
         <span class="eyebrow">Angular 21 example</span>
         <h1>Drop video feedback into an Angular product.</h1>
         <p>

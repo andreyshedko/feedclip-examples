@@ -26,6 +26,12 @@ const config = {
 <template>
   <main class="demo-shell">
     <section class="demo-copy">
+      <a class="brand-link" href="https://www.feedclip.dev" target="_blank" rel="noreferrer">
+        <span class="brand-mark" aria-hidden="true">
+          <span class="brand-dot"></span>
+        </span>
+        feedclip
+      </a>
       <span class="eyebrow">Vue 3 example</span>
       <h1>Video feedback inside your Vue product.</h1>
       <p>
