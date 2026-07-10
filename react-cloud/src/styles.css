@@ -55,6 +55,16 @@ ul {
   padding-left: 1.25rem;
 }
 
+.demo-status {
+  border: 1px solid rgba(23, 23, 18, 0.12);
+  border-radius: 1rem;
+  background: #fffaf0;
+  color: #3f3f39;
+  font-weight: 700;
+  margin: 1.25rem 0 0;
+  padding: 0.85rem 1rem;
+}
+
 .delete-button {
   border: 1px solid #171712;
   border-radius: 999px;

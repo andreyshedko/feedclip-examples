@@ -45,13 +45,17 @@ export default function App() {
   const deleteSubmission = useCallback(async () => {
     if (!submissionAccess) return;
     setIsDeleting(true);
-    setSubmissionStatus("");
+    setSubmissionStatus("Deleting your demo submission…");
     try {
       await deleteCloudSubmission(submissionAccess);
       setSubmissionAccess(undefined);
       setSubmissionStatus("Submission deleted from the Cloud demo.");
     } catch (error) {
-      setSubmissionStatus(error instanceof Error ? error.message : "Deletion failed");
+      setSubmissionStatus(
+        error instanceof Error
+          ? error.message
+          : "Could not delete the Cloud demo submission"
+      );
     } finally {
       setIsDeleting(false);
     }
@@ -73,7 +77,11 @@ export default function App() {
           <li>Manual deletion or automatic deletion within 24 hours</li>
         </ul>
         {licenseError && <p role="alert">{licenseError}</p>}
-        {submissionStatus && <p role="status">{submissionStatus}</p>}
+        {submissionStatus && (
+          <p className="demo-status" role="status" aria-live="polite">
+            {submissionStatus}
+          </p>
+        )}
         <div className="consent">
           <input
             id="cloud-demo-consent"
