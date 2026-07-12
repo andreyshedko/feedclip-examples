@@ -64,6 +64,12 @@ export default function App() {
   return (
     <main className="demo-shell">
       <section className="demo-copy">
+        <a className="brand-link" href="https://www.feedclip.dev" target="_blank" rel="noreferrer">
+          <span className="brand-mark" aria-hidden="true">
+            <span className="brand-dot" />
+          </span>
+          feedclip
+        </a>
         <span className="eyebrow">FeedClip Cloud · React 19</span>
         <h1>Managed feedback upload without browser secrets.</h1>
         <p>

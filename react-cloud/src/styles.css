@@ -29,6 +29,35 @@ body {
   max-width: 36rem;
 }
 
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.6rem;
+  color: #171712;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border-radius: 0.8rem;
+  background: #ff5a36;
+  box-shadow: 0 0.45rem 1.1rem rgba(255, 90, 54, 0.28);
+}
+
+.brand-dot {
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 0.2rem solid #fff;
+  border-radius: 999px;
+}
+
 .eyebrow {
   color: #e74927;
   font-size: 0.75rem;
