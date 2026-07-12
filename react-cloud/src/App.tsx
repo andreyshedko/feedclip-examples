@@ -11,20 +11,35 @@ import { loadDemoLicense } from "./license";
 export default function App() {
   const [license, setLicense] = useState<FeedClipLicenseConfig>();
   const [licenseError, setLicenseError] = useState("");
+  const [isLicenseLoading, setIsLicenseLoading] = useState(true);
   const [submissionAccess, setSubmissionAccess] =
     useState<CloudSubmissionAccess>();
   const [submissionStatus, setSubmissionStatus] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [hasConsent, setHasConsent] = useState(false);
 
+  const requestLicense = useCallback(async (signal?: AbortSignal) => {
+    setLicenseError("");
+    setIsLicenseLoading(true);
+    try {
+      const demoLicense = await loadDemoLicense(signal);
+      if (signal?.aborted) return;
+      setLicense(demoLicense);
+    } catch (error: unknown) {
+      if (signal?.aborted) return;
+      setLicenseError(
+        error instanceof Error ? error.message : "Cloud demo is unavailable"
+      );
+    } finally {
+      if (!signal?.aborted) setIsLicenseLoading(false);
+    }
+  }, []);
+
   useEffect(() => {
     const controller = new AbortController();
-    void loadDemoLicense(controller.signal).then(setLicense).catch((error: unknown) => {
-      if (controller.signal.aborted) return;
-      setLicenseError(error instanceof Error ? error.message : "Cloud demo is unavailable");
-    });
+    void requestLicense(controller.signal);
     return () => controller.abort();
-  }, []);
+  }, [requestLicense]);
 
   const submit = useCallback(
     (
@@ -82,7 +97,13 @@ export default function App() {
           <li>OpenAI disabled for this public demo</li>
           <li>Manual deletion or automatic deletion within 24 hours</li>
         </ul>
-        {licenseError && <p role="alert">{licenseError}</p>}
+        {license && licenseError && (
+          <LicenseAlert
+            message={licenseError}
+            isRetrying={isLicenseLoading}
+            onRetry={() => void requestLicense()}
+          />
+        )}
         {submissionStatus && (
           <p className="demo-status" role="status" aria-live="polite">
             {submissionStatus}
@@ -139,15 +160,42 @@ export default function App() {
           }}
         />
       ) : (
-        <section className="feedclip-shell" aria-live="polite">
-          <p>
-            {licenseError ||
-              (license
+        <section className="license-panel" aria-live="polite">
+          {licenseError ? (
+            <LicenseAlert
+              message={licenseError}
+              isRetrying={isLicenseLoading}
+              onRetry={() => void requestLicense()}
+            />
+          ) : (
+            <p>
+              {license
                 ? "Accept the demo privacy notice to start recording."
-                : "Loading temporary Cloud license…")}
-          </p>
+                : "Loading temporary Cloud license…"}
+            </p>
+          )}
         </section>
       )}
     </main>
+  );
+}
+
+function LicenseAlert({
+  message,
+  isRetrying,
+  onRetry,
+}: {
+  message: string;
+  isRetrying: boolean;
+  onRetry: () => void;
+}) {
+  return (
+    <div className="license-alert" role="alert">
+      <strong>Demo license did not load</strong>
+      <p>{message}</p>
+      <button type="button" onClick={onRetry} disabled={isRetrying}>
+        {isRetrying ? "Retrying…" : "Try again"}
+      </button>
+    </div>
   );
 }
