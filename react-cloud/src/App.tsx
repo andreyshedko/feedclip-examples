@@ -60,13 +60,17 @@ export default function App() {
   const deleteSubmission = useCallback(async () => {
     if (!submissionAccess) return;
     setIsDeleting(true);
-    setSubmissionStatus("");
+    setSubmissionStatus("Deleting your demo submission…");
     try {
       await deleteCloudSubmission(submissionAccess);
       setSubmissionAccess(undefined);
       setSubmissionStatus("Submission deleted from the Cloud demo.");
     } catch (error) {
-      setSubmissionStatus(error instanceof Error ? error.message : "Deletion failed");
+      setSubmissionStatus(
+        error instanceof Error
+          ? error.message
+          : "Could not delete the Cloud demo submission"
+      );
     } finally {
       setIsDeleting(false);
     }
@@ -75,6 +79,12 @@ export default function App() {
   return (
     <main className="demo-shell">
       <section className="demo-copy">
+        <a className="brand-link" href="https://www.feedclip.dev" target="_blank" rel="noreferrer">
+          <span className="brand-mark" aria-hidden="true">
+            <span className="brand-dot" />
+          </span>
+          feedclip
+        </a>
         <span className="eyebrow">FeedClip Cloud · React 19</span>
         <h1>Managed feedback upload without browser secrets.</h1>
         <p>
@@ -94,7 +104,11 @@ export default function App() {
             onRetry={() => void requestLicense()}
           />
         )}
-        {submissionStatus && <p role="status">{submissionStatus}</p>}
+        {submissionStatus && (
+          <p className="demo-status" role="status" aria-live="polite">
+            {submissionStatus}
+          </p>
+        )}
         <div className="consent">
           <input
             id="cloud-demo-consent"
