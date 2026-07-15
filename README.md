@@ -6,17 +6,36 @@ Standalone examples for the published
 The repository contains three Free framework integrations plus focused React
 demos for Pro and Cloud. No example exposes a permanent project or license key.
 
-| Example | Mode | Source | Open in StackBlitz |
+| Example | Mode | Source | Hosted demo |
 |---|---|---|---|
-| React 19 | Free · local IndexedDB | [`react`](./react) | [Open example](https://stackblitz.com/github/andreyshedko/feedclip-examples/tree/main/react) |
-| Vue 3 | Free · local IndexedDB | [`vue`](./vue) | [Open example](https://stackblitz.com/github/andreyshedko/feedclip-examples/tree/main/vue) |
-| Angular 21 | Free · local IndexedDB | [`angular`](./angular) | [Open example](https://stackblitz.com/github/andreyshedko/feedclip-examples/tree/main/angular) |
-| React 19 Pro | Pro · self-hosted storage | [`react-pro`](./react-pro) | [Open example](https://stackblitz.com/github/andreyshedko/feedclip-examples/tree/main/react-pro) |
-| React 19 Cloud | Cloud · managed storage | [`react-cloud`](./react-cloud) | [Open example](https://stackblitz.com/github/andreyshedko/feedclip-examples/tree/main/react-cloud) |
+| React 19 | Free · local IndexedDB | [`react`](./react) | To be deployed |
+| Vue 3 | Free · local IndexedDB | [`vue`](./vue) | To be deployed |
+| Angular 21 | Free · local IndexedDB | [`angular`](./angular) | To be deployed |
+| React 19 Pro | Pro · self-hosted storage | [`react-pro`](./react-pro) | To be deployed |
+| React 19 Cloud | Cloud · managed storage | [`react-cloud`](./react-cloud) | To be deployed |
 
 The Pro and Cloud demos request a short-lived signed demo license. Cloud also
 uses a five-minute scoped upload token and does not call OpenAI in the public
 example.
+
+## Hosted demos
+
+The production demos should be deployed as five independent Vercel projects,
+each with its Vercel **Root Directory** set to the matching framework folder.
+Every folder contains a `vercel.json` with the build and output settings. Use
+these stable subdomains once the Vercel projects and DNS records are created:
+
+| Example | Domain |
+|---|---|
+| React | `react-demo.feedclip.dev` |
+| Vue | `vue-demo.feedclip.dev` |
+| Angular | `angular-demo.feedclip.dev` |
+| React Pro | `pro-demo.feedclip.dev` |
+| React Cloud | `cloud-demo.feedclip.dev` |
+
+StackBlitz links are intentionally not used as the primary demo path because
+embedded previews cannot reliably request screen-sharing permissions and
+detached preview URLs can expire.
 
 ## Screen recording in StackBlitz
 
