@@ -21,9 +21,11 @@ example.
 ## Screen recording in StackBlitz
 
 StackBlitz embeds the running app in an iframe. Browsers block screen sharing
-from that embedded preview, so click **Open this preview in a new tab** in the
-notice shown above the example, then choose **Record screen** again. Camera
-recording can be started in the embedded preview.
+from that embedded preview, so use StackBlitz's own **Open preview in a new
+tab** control in the preview toolbar, then choose **Record screen** again.
+Do not open the raw preview URL manually: StackBlitz may show a “Connect to
+Project” screen for an unlinked tab. Camera recording can be started in the
+embedded preview.
 
 ## Local development
 
