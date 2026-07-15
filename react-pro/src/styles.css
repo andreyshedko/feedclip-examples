@@ -84,6 +84,28 @@ ul {
   padding-left: 1.25rem;
 }
 
+.embedded-preview-notice {
+  grid-column: 1 / -1;
+  padding: 1rem 1.25rem;
+  border: 1px solid #f0a28f;
+  border-radius: 1rem;
+  background: #fff4ef;
+}
+
+.embedded-preview-notice strong {
+  color: #a6321b;
+}
+
+.embedded-preview-notice p {
+  margin: 0.35rem 0 0.65rem;
+  font-size: 0.95rem;
+}
+
+.embedded-preview-notice a {
+  color: #a6321b;
+  font-weight: 800;
+}
+
 .license-panel,
 .license-alert {
   border: 1px solid rgba(231, 73, 39, 0.25);

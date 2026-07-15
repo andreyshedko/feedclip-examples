@@ -18,6 +18,13 @@ The Pro and Cloud demos request a short-lived signed demo license. Cloud also
 uses a five-minute scoped upload token and does not call OpenAI in the public
 example.
 
+## Screen recording in StackBlitz
+
+StackBlitz embeds the running app in an iframe. Browsers block screen sharing
+from that embedded preview, so click **Open this preview in a new tab** in the
+notice shown above the example, then choose **Record screen** again. Camera
+recording can be started in the embedded preview.
+
 ## Local development
 
 Open a framework directory, then run:

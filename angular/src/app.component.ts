@@ -8,6 +8,13 @@ import { createIndexedDbFeedbackStore } from "@feedclip/sdk";
   imports: [FeedClipAngularComponent],
   template: `
     <main class="demo-shell">
+      @if (isEmbedded) {
+        <aside class="embedded-preview-notice" role="note">
+          <strong>Screen recording needs a standalone tab.</strong>
+          <p>StackBlitz blocks screen sharing inside its embedded preview. Open this example in a new tab, then choose <b>Record screen</b> again.</p>
+          <a [href]="previewUrl" target="_blank" rel="noreferrer">Open this preview in a new tab</a>
+        </aside>
+      }
       <section class="demo-copy">
         <a class="brand-link" href="https://www.feedclip.dev" target="_blank" rel="noreferrer">
           <span class="brand-mark" aria-hidden="true">
@@ -33,6 +40,8 @@ import { createIndexedDbFeedbackStore } from "@feedclip/sdk";
   `,
 })
 export class AppComponent {
+  readonly isEmbedded = typeof window !== "undefined" && window.parent !== window;
+  readonly previewUrl = typeof window === "undefined" ? "" : window.location.href;
   readonly config = {
     locale: "en-US" as const,
     maxDurationMilliSeconds: 60_000,
