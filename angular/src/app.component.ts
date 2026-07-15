@@ -11,8 +11,7 @@ import { createIndexedDbFeedbackStore } from "@feedclip/sdk";
       @if (isEmbedded) {
         <aside class="embedded-preview-notice" role="note">
           <strong>Screen recording needs a standalone tab.</strong>
-          <p>StackBlitz blocks screen sharing inside its embedded preview. Open this example in a new tab, then choose <b>Record screen</b> again.</p>
-          <a [href]="previewUrl" target="_blank" rel="noreferrer">Open this preview in a new tab</a>
+          <p>StackBlitz blocks screen sharing inside its embedded preview. Use the StackBlitz preview toolbar&apos;s <b>Open preview in a new tab</b> button, then choose <b>Record screen</b> again.</p>
         </aside>
       }
       <section class="demo-copy">
@@ -41,7 +40,6 @@ import { createIndexedDbFeedbackStore } from "@feedclip/sdk";
 })
 export class AppComponent {
   readonly isEmbedded = typeof window !== "undefined" && window.parent !== window;
-  readonly previewUrl = typeof window === "undefined" ? "" : window.location.href;
   readonly config = {
     locale: "en-US" as const,
     maxDurationMilliSeconds: 60_000,
