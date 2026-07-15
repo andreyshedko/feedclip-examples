@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import FeedClipVue from "@feedclip/sdk/vue";
 import { createIndexedDbFeedbackStore } from "@feedclip/sdk";
 import "@feedclip/sdk/style.css";
+
+const isEmbedded = computed(() => typeof window !== "undefined" && window.parent !== window);
+const previewUrl = typeof window === "undefined" ? "" : window.location.href;
 
 const config = {
   locale: "en-US" as const,
@@ -25,6 +29,11 @@ const config = {
 
 <template>
   <main class="demo-shell">
+    <aside v-if="isEmbedded" class="embedded-preview-notice" role="note">
+      <strong>Screen recording needs a standalone tab.</strong>
+      <p>StackBlitz blocks screen sharing inside its embedded preview. Open this example in a new tab, then choose <b>Record screen</b> again.</p>
+      <a :href="previewUrl" target="_blank" rel="noreferrer">Open this preview in a new tab</a>
+    </aside>
     <section class="demo-copy">
       <a class="brand-link" href="https://www.feedclip.dev" target="_blank" rel="noreferrer">
         <span class="brand-mark" aria-hidden="true">

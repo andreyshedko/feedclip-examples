@@ -5,6 +5,7 @@ import FeedClip, {
 } from "@feedclip/sdk";
 import "@feedclip/sdk/style.css";
 import { loadDemoLicense } from "./license";
+import EmbeddedPreviewNotice from "./EmbeddedPreviewNotice";
 
 const saveLocally = createIndexedDbFeedbackStore({
   databaseName: "feedclip-react-pro-example",
@@ -40,6 +41,7 @@ export default function App() {
 
   return (
     <main className="demo-shell">
+      <EmbeddedPreviewNotice />
       <section className="demo-copy">
         <a className="brand-link" href="https://www.feedclip.dev" target="_blank" rel="noreferrer">
           <span className="brand-mark" aria-hidden="true">
