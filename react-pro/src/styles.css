@@ -115,7 +115,10 @@ ul {
 }
 
 .license-panel {
-  padding: 1.5rem;
+  display: grid;
+  min-height: 26rem;
+  align-content: center;
+  padding: 2rem;
 }
 
 .license-panel p {
@@ -123,7 +126,19 @@ ul {
 }
 
 .license-alert {
+  width: 100%;
+  max-width: 32rem;
   padding: 1rem;
+}
+
+.license-panel::before {
+  content: "FEEDCLIP PRO · DEMO";
+  display: block;
+  margin-bottom: 1.25rem;
+  color: #e74927;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
 }
 
 .license-alert strong {
