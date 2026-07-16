@@ -96,7 +96,29 @@ export default function App() {
           )}
         </section>
       )}
+      <CodeSample />
     </main>
+  );
+}
+
+function CodeSample() {
+  return (
+    <section className="code-panel" aria-labelledby="code-heading">
+      <div className="code-panel-heading">
+        <div><span className="code-kicker">Copy this integration</span><h2 id="code-heading">React · Pro</h2></div>
+        <a href="https://www.npmjs.com/package/@feedclip/sdk" target="_blank" rel="noreferrer">SDK docs ↗</a>
+      </div>
+      <pre><code>{`import FeedClip from "@feedclip/sdk";
+import "@feedclip/sdk/style.css";
+
+<FeedClip
+  config={{
+    license,
+    onSubmit: saveFeedback,
+    getContext: () => ({ issueId }),
+  }}
+/>`}</code></pre>
+    </section>
   );
 }
 

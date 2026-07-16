@@ -178,7 +178,29 @@ export default function App() {
           )}
         </section>
       )}
+      <CodeSample />
     </main>
+  );
+}
+
+function CodeSample() {
+  return (
+    <section className="code-panel" aria-labelledby="code-heading">
+      <div className="code-panel-heading">
+        <div><span className="code-kicker">Copy this integration</span><h2 id="code-heading">React · Cloud</h2></div>
+        <a href="https://www.feedclip.dev/docs" target="_blank" rel="noreferrer">Cloud docs ↗</a>
+      </div>
+      <pre><code>{`// Your server exchanges the project key for a short-lived token.
+const submit = (submission, onProgress) =>
+  submitToFeedClipCloud(submission, onProgress);
+
+<FeedClip
+  config={{
+    license,
+    onSubmit: submit,
+  }}
+/>`}</code></pre>
+    </section>
   );
 }
 

@@ -48,6 +48,32 @@ export default function App() {
           onSubmit: saveLocally,
         }}
       />
+      <CodeSample />
     </main>
+  );
+}
+
+function CodeSample() {
+  return (
+    <section className="code-panel" aria-labelledby="code-heading">
+      <div className="code-panel-heading">
+        <div>
+          <span className="code-kicker">Copy this integration</span>
+          <h2 id="code-heading">React · Free SDK</h2>
+        </div>
+        <a href="https://www.npmjs.com/package/@feedclip/sdk" target="_blank" rel="noreferrer">npm package ↗</a>
+      </div>
+      <pre><code>{`import FeedClip, { createIndexedDbFeedbackStore } from "@feedclip/sdk";
+import "@feedclip/sdk/style.css";
+
+<FeedClip
+  config={{
+    maxDurationMilliSeconds: 60_000,
+    onSubmit: createIndexedDbFeedbackStore({
+      databaseName: "feedback",
+    }),
+  }}
+/>`}</code></pre>
+    </section>
   );
 }

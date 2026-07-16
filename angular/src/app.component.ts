@@ -35,11 +35,19 @@ import { createIndexedDbFeedbackStore } from "@feedclip/sdk";
       </section>
 
       <feedclip-widget [config]="config" />
+      <section class="code-panel" aria-labelledby="code-heading">
+        <div class="code-panel-heading">
+          <div><span class="code-kicker">Copy this integration</span><h2 id="code-heading">Angular · Free SDK</h2></div>
+          <a href="https://www.npmjs.com/package/@feedclip/sdk" target="_blank" rel="noreferrer">npm package ↗</a>
+        </div>
+        <pre><code>{{ angularCode }}</code></pre>
+      </section>
     </main>
   `,
 })
 export class AppComponent {
   readonly isEmbedded = typeof window !== "undefined" && window.parent !== window;
+  readonly angularCode = `import { FeedClipAngularComponent } from "@feedclip/sdk/angular";\n\n@Component({\n  imports: [FeedClipAngularComponent],\n  template: \`<feedclip-widget [config]="config" />\`,\n})\nexport class AppComponent {\n  config = { onSubmit: saveFeedback };\n}`;
   readonly config = {
     locale: "en-US" as const,
     maxDurationMilliSeconds: 60_000,
