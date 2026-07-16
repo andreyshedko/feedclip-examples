@@ -1,6 +1,6 @@
 {
-  "framework": "vite",
+  "framework": "angular",
   "installCommand": "npm ci",
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/feedclip-angular-example"
+  "outputDirectory": "dist/feedclip-angular-example/browser"
 }
