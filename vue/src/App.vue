@@ -5,6 +5,7 @@ import { createIndexedDbFeedbackStore } from "@feedclip/sdk";
 import "@feedclip/sdk/style.css";
 
 const isEmbedded = computed(() => typeof window !== "undefined" && window.parent !== window);
+const vueCode = `<script setup lang="ts">\nimport FeedClipVue from "@feedclip/sdk/vue";\nimport "@feedclip/sdk/style.css";\n\nconst config = {\n  onSubmit: saveFeedback,\n};\n<\/script>\n\n<FeedClipVue :config="config" />`;
 
 const config = {
   locale: "en-US" as const,
@@ -53,5 +54,12 @@ const config = {
     </section>
 
     <FeedClipVue :config="config" />
+    <section class="code-panel" aria-labelledby="code-heading">
+      <div class="code-panel-heading">
+        <div><span class="code-kicker">Copy this integration</span><h2 id="code-heading">Vue 3 · Free SDK</h2></div>
+        <a href="https://www.npmjs.com/package/@feedclip/sdk" target="_blank" rel="noreferrer">npm package ↗</a>
+      </div>
+      <pre><code>{{ vueCode }}</code></pre>
+    </section>
   </main>
 </template>
