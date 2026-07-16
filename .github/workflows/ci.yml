@@ -28,3 +28,28 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm audit --omit=dev --audit-level=high
+
+  browser-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.14.0
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            react/package-lock.json
+            vue/package-lock.json
+            angular/package-lock.json
+            react-pro/package-lock.json
+            react-cloud/package-lock.json
+      - run: npm ci
+      - run: npm ci --prefix react
+      - run: npm ci --prefix vue
+      - run: npm ci --prefix angular
+      - run: npm ci --prefix react-pro
+      - run: npm ci --prefix react-cloud
+      - run: npx playwright install --with-deps chromium
+      - run: npm run e2e
