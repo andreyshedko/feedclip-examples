@@ -37,6 +37,14 @@ StackBlitz links are intentionally not used as the primary demo path because
 embedded previews cannot reliably request screen-sharing permissions and
 detached preview URLs can expire.
 
+For Pro and Cloud hosted demos, add all five demo origins to the landing/API
+environment allowlists before testing license creation:
+
+```text
+FEEDCLIP_DEMO_ALLOWED_ORIGINS=https://react-demo.feedclip.dev,https://vue-demo.feedclip.dev,https://angular-demo.feedclip.dev,https://pro-demo.feedclip.dev,https://cloud-demo.feedclip.dev
+FEEDCLIP_ALLOWED_ORIGINS=https://react-demo.feedclip.dev,https://vue-demo.feedclip.dev,https://angular-demo.feedclip.dev,https://pro-demo.feedclip.dev,https://cloud-demo.feedclip.dev
+```
+
 ## Screen recording in StackBlitz
 
 StackBlitz embeds the running app in an iframe. Browsers block screen sharing
