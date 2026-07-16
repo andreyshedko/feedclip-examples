@@ -59,6 +59,8 @@ body {
 }
 
 .eyebrow {
+  display: inline-block;
+  margin-left: 0.55rem;
   color: #e74927;
   font-size: 0.75rem;
   font-weight: 800;
