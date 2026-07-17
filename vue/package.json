@@ -9,7 +9,7 @@
     "start": "vite --host 0.0.0.0"
   },
   "dependencies": {
-    "@feedclip/sdk": "0.1.29",
+    "@feedclip/sdk": "0.1.30",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "vue": "^3.5.0"
